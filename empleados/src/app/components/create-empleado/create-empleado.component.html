@@ -1,0 +1,28 @@
+<div class="container pt-4"> 
+    <!-- pd-4 es un paddin top de 4 -->
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{titulo | uppercase}}</h3>
+                    <form class="mt-4 " [formGroup]="empleadoForm" (ngSubmit)="agregarEmpleado()">
+                        <div class="row">
+                            <div class="col">
+                                <input formControlName="nombre" type="text" class="form-control form-control-lg" placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <input formControlName="apellido" type="text" class="form-control form-control-lg" placeholder="Apellido">
+                            </div>
+                        </div>
+                        <input formControlName="numero" type="text" class="form-control form-control-lg mt-3" placeholder="Número telefónico">
+                        <input formControlName="salario" type="text" class="form-control form-control-lg mt-3" placeholder="Salario">
+                        <div class="mt-3 div-buttons">
+                            <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/list-empleados">Volver</button>
+                            <button type="submit" [disabled]="empleadoForm.invalid" class="btn btn-dark btn-lg">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

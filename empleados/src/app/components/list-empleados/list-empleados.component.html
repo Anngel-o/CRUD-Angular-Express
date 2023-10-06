@@ -1,0 +1,41 @@
+<div class="container mt-4"> 
+    <!-- mt-4 es margin top de 4 -->
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Lista de empleados</span>
+            <button class="btn btn-dark btn-lg float-end" routerLink="/create-empleado">Agregar</button>
+            <!-- float-right poscona a la derecha un elemento -->
+            <table *ngIf="listEmpleados.length > 0" class="table table-dark table-striped-columns mt-5">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Número</th>
+                    <th>Salario</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let empleado of listEmpleados">
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.apellido}}</td>
+                    <td>{{empleado.numero}}</td>
+                    <td>{{empleado.salario | currency: 'USD'}}</td>
+                    <td>
+                        <div class="container-buttons">
+                            <i [routerLink]="['/create-empleado', empleado._id]" class="fas fa-edit fa-lg text-info mr-6" style="color: #ffffff;"></i>
+                            <i (click)="eliminarEmpleado(empleado._id)" class="fas fa-trash fa-lg text-danger"></i>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h5 style="text-align: start; margin-top: 10px;" *ngIf="listEmpleados.length == 0">No hay empleados para mostrar</h5>
+            <ul>
+                <!-- <li class="text" *ngFor="let item of items$ | async">
+                  {{item.name}}
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>

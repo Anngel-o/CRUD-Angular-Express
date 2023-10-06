@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "target": "empleados",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
